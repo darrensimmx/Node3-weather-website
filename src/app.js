@@ -5,6 +5,7 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const app = express() //to use the express fn, unlike other lib, express is one fn, not an obj 
+const port = process.env.PORT || 3000
 
 // Define paths for Express config
 const publicDirectioryPath = path.join(__dirname, '../public')
@@ -97,6 +98,6 @@ app.get('*', (req, res) => { // * is a wildcard to match anything that hasn't be
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000')// not gonna display on browser, but a useful info
-})//used only once, to start a server
+app.listen(port, () => {
+    console.log('Server is up on port ' + port) // not gonna display on browser, but a useful info
+}) //used only once, to start a server
