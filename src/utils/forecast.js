@@ -9,9 +9,10 @@ const forecast = (latitude, longitude, callback) => {
       } else if (body.features === 0) {
         callback('Unable to find forcast', undefined)
       } else {
+        const humidity = body.current.humidity
         const temp = body.current.temperature
         const feelsLike = body.current.feelslike
-        callback(undefined, body.current.weather_descriptions + ". It is currently " + temp + " degrees. It feels like " + feelsLike + " degrees.")
+        callback(undefined, body.current.weather_descriptions + ". It is currently " + temp + " degrees. It feels like " + feelsLike + " degrees. The humidity is: " + humidity + "%")
       }
   }
 
